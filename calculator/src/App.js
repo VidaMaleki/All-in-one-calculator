@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Calculator from './pages/Calculator/Calculator';
+import CurrencyConverter from './pages/CurrencyConverter/CurrencyConverter';
+import LoanCalculator from './pages/LoanCalculator/LoanCalculator';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path='/'  component={Home}/>
+        <Route exact path='/calculator' component={Calculator} />
+        <Route exact path='/currencyconverter' component={CurrencyConverter} />
+        <Route exact path='/loancalculator' component={LoanCalculator} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 

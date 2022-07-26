@@ -1,24 +1,49 @@
-import React from "react";
+import React  from "react";
 import CalculatorBox from "./CalculatorBox";
 import Button from "./Button";
-import { Textfit } from "react-textfit";
+import './Calculator.css';
+import Screen from './Screen';
+import Wrapper from './Wrapper';
 
-function Calculator() {
+
+const ButtonsName = [
+  ["AC", "+/-", "%", "/"], 
+  [7, 8, 9, "X"],
+  [4, 5, 6, "-"],
+  [1, 2, 3, "+"],
+  [0, ".", "="]
+];
+
+const Calculator= ()=> {
+  // const [calc, setCalc] = useState({
+  //   num: 0,
+  //   sign:"",
+  //   result:0
+  // });
   return (
     <div className="calculator">
+      <section className="calctitle">
       <h1>Calculator</h1>
-      <CalculatorBox>
-        <Textfit value="0" className="screen" mode="single" max={70}>
-          {/* {value='0'} */}
-        </Textfit>
-        <Button
-          className=""
-          value="0"
-          onClick={() => {
-            console.log("Button clicked");
-          }}
-        />
+      <Wrapper className="main">
+        <Screen value='0' />
+        <CalculatorBox>
+          {
+            ButtonsName.flat().map((item, index) => {
+                return (
+                  <Button
+                  key={index}
+                  className={item === "=" ? "equals" : ""}
+                  value={item}
+                  onClick={() => {
+                  console.log(`${item} clicked!`);
+                }}
+            />  
+          );
+        })
+        }
       </CalculatorBox>
+      </Wrapper>
+      </section>
     </div>
   );
 }

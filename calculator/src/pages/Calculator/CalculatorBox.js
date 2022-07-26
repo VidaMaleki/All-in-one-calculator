@@ -1,11 +1,9 @@
+import './CalculatorBox.css';
 
-import './CalculatorBox.css'
 
-const CalculatorBox = (props) => {
+const CalculatorBox = ({children}) => {
   return (
-    <div className="wrapper">
-      <div className="buttonBox"></div>
-    </div>
+      <div className="buttonBox">{children}</div>
   );
 };
 

@@ -48,7 +48,7 @@ const Calculator= ()=> {
       e.preventDefault();
       const value =e.target.innerHTML;
       
-      const calcCopy = {...calc}
+      const calcCopy = {...calc};
       if(!calc.num.toString.includes(".")){
         setCalc(calcCopy.num = calc.num + value)
         console.log(calc.num)
@@ -57,9 +57,36 @@ const Calculator= ()=> {
       }
     }
 
+
+    const signClick = (e) => {
+      e.preventDefault();
+      const value = e.target.innerHTML;
+      //No effect when press a sign more than once
+      const calcCopy = {...calc};
+      setCalc(calcCopy.sign = value);
+
+      if (calc.result === 0 && calc.num){
+        setCalc(calcCopy.result = calc.num)
+      }
+      setCalc(calcCopy.num = 0)
+    }
     
 
-
+    // const equalClick = (e) => {
+    //   console.log("pressed equal!")
+    // }
+      // if(value === "÷"){
+      //   setCalc(calcCopy.sign = "/")
+      // }else if (value === "-"){
+      //   setCalc(calcCopy.sign = "-")
+      // }else if (value === "×"){
+      //   setCalc(calcCopy.sign = "×")
+      // }else if (value === "+"){
+      //   setCalc(calcCopy.sign = "+")
+      // }
+      // if (calc.sign === "÷"){
+      //     setCalc(calcCopy.num = calc.num)
+      // }
 
 
   return (

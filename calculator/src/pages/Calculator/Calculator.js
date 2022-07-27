@@ -103,8 +103,7 @@ const Calculator= ()=> {
                   key={index}
                   className={item === 'AC'? 
                     item === '÷'||item === '×'||item === '-'||item === '+'|| item === '='? "colorButton" : ""
-                            
-                }
+                  }
                   value={item}
                   onClick={() => {
                   item === "AC"? resetClick:

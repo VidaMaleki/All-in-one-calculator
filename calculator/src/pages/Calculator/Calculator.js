@@ -1,4 +1,4 @@
-import React  from "react";
+import React, {useState}  from "react";
 // import CalculatorBox from "./CalculatorBox";
 import Button from "./Button";
 import './Calculator.css';
@@ -18,17 +18,56 @@ const ButtonsName = [
 
 
 const Calculator= ()=> {
-  // const [calc, setCalc] = useState({
-  //   num: 0,
-  //   sign:"",
-  //   result:0
-  // });
+  const [calc, setCalc] = useState({
+    num: 0,
+    sign:"",
+    result:0
+  });
+    // handeling the click 
+    const numClick = (e) =>{
+      // preventDefault will prevent a browser reload/refresh
+      e.preventDefault();
+      // Target will get element that triggered a specific event
+      // The innerHTML property sets or returns the HTML content
+      const value =e.target.innerHTML;
+
+      if (calc.num.length <16){
+        const calcCopy = {...calc}
+        if (calc.num === 0 && value === "0"){
+          setCalc(calcCopy.num = "0")
+        }else if(calcCopy.num %1 === 0){
+          setCalc(calcCopy.num = Number(calc.num + value))
+        }else {
+          setCalc(calcCopy.num = calc.num + value)
+        }
+        !calc.sign ? setCalc(calcCopy.result = 0) : setCalc(calcCopy.result = calc.result)
+      }
+    };
+
+    const commaClick = (e) =>{
+      e.preventDefault();
+      const value =e.target.innerHTML;
+      
+      const calcCopy = {...calc}
+      if(!calc.num.toString.includes(".")){
+        setCalc(calcCopy.num = calc.num + value)
+        console.log(calc.num)
+      }else{
+        setCalc(calcCopy.num = calc.num)
+      }
+    }
+
+    
+
+
+
+
   return (
     <div className="calculator">
       <section className="calctitle">
       <h1>Calculator</h1>
       <div className="wrapper">
-      <Textfit className="screen" mode="single" max={70} value='0'></Textfit>
+      <Textfit className="screen" mode="single" max={70} value={calc.num ? calc.num: calc.result}>0</Textfit>
       <div className="buttonBox">
           {
             ButtonsName.flat().map((item, index) => {
@@ -38,7 +77,13 @@ const Calculator= ()=> {
                   className={item === '÷'||item === '×'||item === '-'||item === '+'|| item === '='? "colorButton" : ""}
                   value={item}
                   onClick={() => {
-                  console.log(`${item} ${index}clicked!`);
+                  item === "AC"? resetClick:
+                  item === "+/-"? invertClick:
+                  item === "%"? percentClick:
+                  item === "="? equalsClick:
+                  item === "/" || item === "×"|| item === "-"|| item === "+"? signClick:
+                  item === "."? commaClick : numClick
+
                 }}
             />  
           );

@@ -1,18 +1,21 @@
 import React  from "react";
-import CalculatorBox from "./CalculatorBox";
+// import CalculatorBox from "./CalculatorBox";
 import Button from "./Button";
 import './Calculator.css';
-import Screen from './Screen';
-import Wrapper from './Wrapper';
-
+// import Screen from './Screen';
+// import Wrapper from './Wrapper';
+import { Textfit } from "react-textfit";
 
 const ButtonsName = [
-  ["AC", "+/-", "%", "/"], 
-  [7, 8, 9, "X"],
+  ["AC", "+/-", "%", "÷"], 
+  [7, 8, 9, "×"],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
-  [0, ".", "="]
+  ["00",0,".", "="]
 ];
+// const signs = ["/", "X", "-","+", "=" ]
+
+
 
 const Calculator= ()=> {
   // const [calc, setCalc] = useState({
@@ -24,25 +27,25 @@ const Calculator= ()=> {
     <div className="calculator">
       <section className="calctitle">
       <h1>Calculator</h1>
-      <Wrapper className="main">
-        <Screen value='0' />
-        <CalculatorBox>
+      <div className="wrapper">
+      <Textfit className="screen" mode="single" max={70} value='0'></Textfit>
+      <div className="buttonBox">
           {
             ButtonsName.flat().map((item, index) => {
                 return (
                   <Button
                   key={index}
-                  className={item === "=" ? "equals" : ""}
+                  className={item === '÷'||item === '×'||item === '-'||item === '+'|| item === '='? "colorButton" : ""}
                   value={item}
                   onClick={() => {
-                  console.log(`${item} clicked!`);
+                  console.log(`${item} ${index}clicked!`);
                 }}
             />  
           );
         })
         }
-      </CalculatorBox>
-      </Wrapper>
+      </div>
+      </div>
       </section>
     </div>
   );

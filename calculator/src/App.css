@@ -7,7 +7,6 @@
 }
 
 .home,
-.calculator,
 .currencyconverter,
 .loancalculator {
     display: flex;
@@ -15,18 +14,4 @@
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-}
-
-.calculator,
-.h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.calculator,
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

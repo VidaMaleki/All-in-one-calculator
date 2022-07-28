@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-// import CalculatorBox from "./CalculatorBox";
 import Button from "./Button";
 import "./Calculator.css";
-// import Screen from './Screen';
-// import Wrapper from './Wrapper';
 import { Textfit } from "react-textfit";
 
 const ButtonsName = [
@@ -13,7 +10,10 @@ const ButtonsName = [
   [1, 2, 3, "+"],
   [ 0, ".", "="],
 ];
-// const signs = ["/", "X", "-","+", "=" ]
+const toLocaleString = (num) =>
+  String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
+
+const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
 const Calculator = () => {
   const [calc, setCalc] = useState({
@@ -29,19 +29,31 @@ const Calculator = () => {
     // The innerHTML property sets or returns the HTML content
     const value = e.target.innerHTML;
 
-    if (calc.num.length < 16) {
-      const calcCopy = { ...calc };
-      if (calc.num === 0 && value === "0") {
-        setCalc((calcCopy.num = "0"));
-      } else if (calcCopy.num % 1 === 0) {
-        setCalc((calcCopy.num = Number(calc.num + value)));
-      } else {
-        setCalc((calcCopy.num = calc.num + value));
-      }
-      !calc.sign
-        ? setCalc((calcCopy.result = 0))
-        : setCalc((calcCopy.result = calc.result));
+    if (removeSpaces(calc.num).length < 16) {
+      setCalc({
+        ...calc,
+        num:
+          calc.num === 0 && value === "0"
+            ? "0"
+            : removeSpaces(calc.num) % 1 === 0
+            ? toLocaleString(Number(removeSpaces(calc.num + value)))
+            : toLocaleString(calc.num + value),
+        res: !calc.sign ? 0 : calc.res,
+      });
     }
+    // if (calc.num.length < 16) {
+    //   const calcCopy = { ...calc };
+    //   console.log(calcCopy)
+    //   if (calc.num === 0 && value === "0") {
+    //     setCalc((calcCopy.num = "0"));
+    //   } else if (calcCopy.num % 1 === 0) {
+    //     setCalc((calcCopy.num = Number(calc.num + value)));
+    //   } else {
+    //     setCalc((calcCopy.num = calc.num + value));
+    //   }
+    //   !calc.sign
+    //     ? setCalc((calcCopy.result = 0)): setCalc((calcCopy.result = calc.result));
+    // }
   };
 
   const commaClick = (e) => {
@@ -49,7 +61,7 @@ const Calculator = () => {
     const value = e.target.innerHTML;
 
     const calcCopy = { ...calc };
-    if (!calc.num.toString.includes(".")) {
+    if (!calc.num.toString().includes(".")) {
       setCalc((calcCopy.num = calc.num + value));
       console.log(calc.num);
     } else {
@@ -70,6 +82,7 @@ const Calculator = () => {
     setCalc((calcCopy.num = 0));
   };
 
+  //Helper function for equalsClick function
   const mathOperation = (result, num, sign) => {
     if (sign === "+") {
       return result + num;
@@ -82,6 +95,7 @@ const Calculator = () => {
     }
   };
 
+  //eguals function and checking for no zero division
   const equalsClick = (e) => {
     console.log(`${e}`)
     if (calc.sign && calc.num) {
@@ -105,6 +119,7 @@ const Calculator = () => {
 
   const percentClick = () => {
     const calcCopy = {...calc}
+    console.log(calcCopy)
     if (calc.num && !calc.result){
       setCalc(calcCopy.num = calc.num /100) 
     }else if(!calc.num && calc.result){
@@ -112,9 +127,6 @@ const Calculator = () => {
     }else if(calc.num && calc.result){
       setCalc(calcCopy.num = (calc.num * calc.result)/100)
     }
-      
-
-
     console.log("pressed percent!");
   };
 
@@ -151,8 +163,7 @@ const Calculator = () => {
                   }
                   value={item}
                   onClick={
-                        
-                        item === "AC"? resetClick 
+                        item === "AC"? resetClick
                       : item === "+/-"? invertClick
                       : item === "%"? percentClick
                       : item === "="? equalsClick 

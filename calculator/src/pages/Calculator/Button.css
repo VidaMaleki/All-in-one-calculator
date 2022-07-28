@@ -1,6 +1,6 @@
 button {
     border: none;
-    background-color: rgb(132, 135, 143);
+    background-color: rgb(85, 86, 88);
     font-size: 24px;
     color: rgb(255, 255, 255);
     font-weight: bold;
@@ -23,4 +23,9 @@ button:hover {
 
 .equals:hover {
     background-color: rgb(228, 39, 15);
+}
+
+.firstRow {
+    background-color: rgb(176, 172, 171);
+    color: black;
 }

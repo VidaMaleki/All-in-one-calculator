@@ -10,109 +10,109 @@ const ButtonsName = [
   [1, 2, 3, "+"],
   [ 0, ".", "="],
 ];
-const toLocaleString = (num) =>
-  String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
-
-const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
 const Calculator = () => {
-  const [calc, setCalc] = useState({
-    num: 0,
-    sign: "",
-    result: 0,
-  });
+  const [calc, setCalc] = useState("");
+  const [result, setResult] = useState("")
+  const[sign, setSign] = useState("")
+
+  //  {
+  //   num: "",
+  //   sign: "",
+  //   result: 0,
+  // }
   // handeling the click
   const numClick = (e) => {
     // preventDefault will prevent a browser reload/refresh
-    e.preventDefault();
-    // Target will get element that triggered a specific event
-    // The innerHTML property sets or returns the HTML content
-    const value = e.target.innerHTML;
-
-    if (removeSpaces(calc.num).length < 16) {
-      setCalc({
-        ...calc,
-        num:
-          calc.num === 0 && value === "0"
-            ? "0"
-            : removeSpaces(calc.num) % 1 === 0
-            ? toLocaleString(Number(removeSpaces(calc.num + value)))
-            : toLocaleString(calc.num + value),
-        res: !calc.sign ? 0 : calc.res,
-      });
-    }
-    // if (calc.num.length < 16) {
-    //   const calcCopy = { ...calc };
-    //   console.log(calcCopy)
-    //   if (calc.num === 0 && value === "0") {
-    //     setCalc((calcCopy.num = "0"));
-    //   } else if (calcCopy.num % 1 === 0) {
-    //     setCalc((calcCopy.num = Number(calc.num + value)));
+    //e.preventDefault();
+    
+    const value = e.target.innerHTML
+    setCalc(calc.concat(value))
+    console.log(`pressed ${value}`)
+    
+    // if (calc.length < 16) {
+    //   if (calc === 0 && value === "0") {
+    //     setCalc("0");
+    //   } else if (calc % 1 === 0) {
+    //     setCalc(calc + value);
     //   } else {
-    //     setCalc((calcCopy.num = calc.num + value));
+    //     setCalc(calc + value);
     //   }
-    //   !calc.sign
-    //     ? setCalc((calcCopy.result = 0)): setCalc((calcCopy.result = calc.result));
+      
+    // }else{
+    //   if (!calc.sign){
+    //     setCalc((calc = 0))
+    //   }else{
+    //     setCalc(calc)
+    //   }
     // }
   };
 
+  
   const commaClick = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const value = e.target.innerHTML;
-
-    const calcCopy = { ...calc };
-    if (!calc.num.toString().includes(".")) {
-      setCalc((calcCopy.num = calc.num + value));
-      console.log(calc.num);
-    } else {
-      setCalc((calcCopy.num = calc.num));
+    if(calc){
+      if (!calc.includes(".")) {
+      setCalc(calc + value);
+      }else {
+        setCalc(calc);
+      }
+    }else{
+      setCalc("0" + value);
     }
   };
+
 
   const signClick = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const value = e.target.innerHTML;
     //No effect when press a sign more than once
-    const calcCopy = { ...calc };
-    setCalc((calcCopy.sign = value));
-
-    if (!calc.result && calc.num) {
-      setCalc((calcCopy.result = calc.num));
+    console.log(`pressed sign`)
+    
+    if (!sign ){
+      setSign(value);
+      setResult(calc);
+      setCalc("")
+      console.log(calc, result, sign)
+      
     }
-    setCalc((calcCopy.num = 0));
+    else{
+      console.log(calc, result, Number(result))
+      setResult(mathOperation(value, Number(result), Number(calc)));
+      setSign(value);
+      setCalc("")
+      console.log(result,calc, sign, "a")
+    }
+    
   };
 
+
   //Helper function for equalsClick function
-  const mathOperation = (result, num, sign) => {
-    if (sign === "+") {
-      return result + num;
-    } else if (sign === "-") {
-      return result - num;
-    } else if (sign === "×") {
-      return result * num;
-    } else if (sign === "÷") {
-      return result / num;
+  const mathOperation = (s, r, c) => {
+    
+    if (s === "+") {
+      return r + c;
+    } else if (s === "-") {
+      return r - c;
+    } else if (s === "×") {
+      return r * c;
+    } else if (s === "÷") {
+      return r / c;
     }
   };
 
   //eguals function and checking for no zero division
   const equalsClick = (e) => {
-    console.log(`${e}`)
-    if (calc.sign && calc.num) {
-      const calcCopy = { ...calc };
-
-      if (calc.num === "0" && calc.sign === "÷") {
-        setCalc((calcCopy.result = "No zero division"));
+    console.log("equals pressed!")
+    
+    if (sign && calc) {
+      if (calc === "0" && sign === "÷") {
+        setResult("No zero division");
       } else {
-        setCalc(
-          (calcCopy.result = mathOperation(
-            Number(calc.result),
-            Number(calc.num),
-            calc.sign
-          ))
-        );
-        setCalc((calcCopy.num = 0));
-        setCalc((calcCopy.sign = ""));
+        setResult(mathOperation(Number(result),Number(calc),sign));
+        setCalc("");
+        setSign("");
       }
     }
   };
@@ -132,10 +132,14 @@ const Calculator = () => {
 
   const invertClick = () => {
     console.log("pressed invert!");
+    setCalc(calc ? -calc : calc)
   };
 
   const resetClick = ()=>{
     console.log("pressed reset!");
+    setCalc("")
+    setResult("")
+    setSign("")
   }
 
   return (
@@ -143,33 +147,26 @@ const Calculator = () => {
       <section className="calctitle">
         <h1>Calculator</h1>
         <div className="wrapper">
-          <Textfit
-            className="screen"
-            mode="single"
-            max={70}
-            value={calc.num ? calc.num : calc.result}
-          >
-            0
-          </Textfit>
+          <Textfit className="screen" mode="single" max={70} 
+          value={calc}>{calc? calc:result}</Textfit>
           <div className="buttonBox">
             {ButtonsName.flat().map((item, index) => {
               return (
                 <Button
                   key={index}
                   className={
-                    item === 'AC'||item === '+/-'||item === '%'? "firstRow"
-                    :item === 0 ? "zero"
+                    item === 0 ? "zero"
+                    :item === 'AC'||item === '+/-'||item === '%'? "firstRow"
                     :item === '÷'||item === '×'||item === '-'||item === '+'|| item === '='? "colorButton" : ""
                   }
                   value={item}
                   onClick={
-                        item === "AC"? resetClick
-                      : item === "+/-"? invertClick
-                      : item === "%"? percentClick
-                      : item === "="? equalsClick 
-                      : item === "/"||item === "×"||item === "-"||item === "+"? signClick
-                      : item === "."? commaClick : numClick
-                      
+                  item === "AC"? resetClick
+                  : item === "+/-"? invertClick
+                  : item === "%"? percentClick
+                  : item === "="? equalsClick 
+                  : item === "/"||item === "×"||item === "-"||item === "+"? signClick
+                  : item === "."? commaClick : numClick
                   }
                 />
               );

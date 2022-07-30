@@ -33,6 +33,19 @@ const Calculator = () => {
     }
   };
 
+  //reset AC function
+  const resetClick = ()=>{
+    setNum("")
+    setResult("")
+    setSign("")
+  }
+
+  // invert +/- function
+  const invertClick = () => {
+    setNum(num ? -num : num)
+  };
+
+
   // comma . function
   const commaClick = (e) => {
     const value = e.target.innerHTML;
@@ -44,6 +57,17 @@ const Calculator = () => {
       }
     }else{
       setNum("0" + value);
+    }
+  };
+
+  //percent % function
+  const percentClick = () => {
+    if (num && !result){
+      setNum(num/100) 
+    }else if(!num && result){
+      setResult(result /100)
+    }else if(num && result){
+      setNum((num* result)/100)
     }
   };
 
@@ -63,7 +87,6 @@ const Calculator = () => {
     }
   };
 
-
   //eguals = function and checking for no zero division
   const equalsClick = () => {
     console.log(` pressed!`)
@@ -73,35 +96,12 @@ const Calculator = () => {
         setNum("");
         setSign("");
       } else {
-        setResult(mathOperation(sign, Number(result), Number(num)));
-        setNum("");
+        setResult("");
+        setNum(mathOperation(sign, Number(result), Number(num)));
         setSign("");
       }
     }
   };
-
-  //percent % function
-  const percentClick = () => {
-    if (num && !result){
-      setNum(num/100) 
-    }else if(!num && result){
-      setResult(result /100)
-    }else if(num && result){
-      setNum((num* result)/100)
-    }
-  };
-
-  // invert +/- function
-  const invertClick = () => {
-    setNum(num ? -num : num)
-  };
-
-  //reset AC function
-  const resetClick = ()=>{
-    setNum("")
-    setResult("")
-    setSign("")
-  }
 
   //Helper function for math operation 
   const mathOperation = (operation, answer, number) => {

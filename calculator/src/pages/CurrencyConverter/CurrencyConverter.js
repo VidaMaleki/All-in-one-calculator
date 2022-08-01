@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import ExchangeForm from "./CurrencyForm";
 
 function CurrencyConverter() {
   const fromCurr = "IDR";
@@ -22,9 +23,8 @@ function CurrencyConverter() {
   };
   return (
     <div className="App">
-      <p>`Hola esta es la info`</p>
+      <ExchangeForm />
       <button onClick={exchInfo}>get exchange rate</button>
-      <p>`esto es {exRate.data}`</p>
     </div>
   );
 }

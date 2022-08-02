@@ -6165,10 +6165,22 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
+<<<<<<< HEAD
 nwsapi@^2.2.0:
   version "2.2.1"
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.1.tgz"
   integrity sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==
+=======
+"numeral@^2.0.6":
+  "integrity" "sha512-qaKRmtYPZ5qdw4jWJD6bxEf1FJEqllJrwxCLIm0sQU/A7v2/czigzOb+C2uSiFsa9lBUzeH7M1oK+Q+OLxL3kA=="
+  "resolved" "https://registry.npmjs.org/numeral/-/numeral-2.0.6.tgz"
+  "version" "2.0.6"
+
+"nwsapi@^2.2.0":
+  "integrity" "sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg=="
+  "resolved" "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.1.tgz"
+  "version" "2.2.1"
+>>>>>>> c77128b4cf0a3a6d14a11870fe9becde64098c51
 
 object-assign@^4.1.1:
   version "4.1.1"

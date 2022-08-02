@@ -7,6 +7,8 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
+
+
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);
      // (false = not showing) (True = showing menu)

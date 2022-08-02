@@ -1,9 +1,12 @@
 import React from "react";
+import LoanForm from './LoanForm'
+
 
 function LoanCalculator() {
   return (
     <div className="loancalculator">
-      <h1>Loan Calculator</h1>
+      <h1 id='loanTitle'>Mortgage Calculator</h1>
+      <LoanForm/>
     </div>
   );
 }

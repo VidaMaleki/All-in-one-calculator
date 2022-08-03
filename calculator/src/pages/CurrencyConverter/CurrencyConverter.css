@@ -1,3 +1,19 @@
+/* .App {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: .5rem;
+} */
+
+.equals {
+    font-size: 2rem;
+}
+
 .formContainer {
     display: flex;
     justify-content: center;

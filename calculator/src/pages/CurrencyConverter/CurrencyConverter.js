@@ -13,9 +13,9 @@ function CurrencyConverter() {
   const [toCurr, setToCurr] = useState("JPY");
   const [exRate, setExRate] = useState("");
   const [info, setInfo] = useState("Previous");
-  const URL = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${fromCurr}&to_currency=${toCurr}&apikey=S6OUYUH5FUD5HOY6`;
 
   const exchInfo = () => {
+    const URL = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${fromCurr}&to_currency=${toCurr}&apikey=S6OUYUH5FUD5HOY6`;
     axios
       .get(URL)
       .then((response) => {

@@ -14,8 +14,10 @@ function CurrencyConverter() {
   const [exRate, setExRate] = useState();
   const [amount, setAmount] = useState("");
   const [info, setInfo] = useState("Previous");
+  const [toAmount, setToAmount] = useState();
 
   const convertAmount = () => {
+    setToAmount(exRate * amount);
     return exRate * amount;
   };
 
@@ -29,7 +31,7 @@ function CurrencyConverter() {
           response.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
         setInfo(allInfo);
         setExRate(newResponse);
-        console.log("AQUI EMPIEZA");
+        console.log("start");
         console.log(newResponse);
         console.log(allInfo);
         console.log(exRate);
@@ -61,7 +63,6 @@ function CurrencyConverter() {
         </div>
 
         <div className="CurrAmount">
-          <label>Currency Amount</label>
           <Dropdown
             options={Object.values(currenciesDictionary)}
             onChange={(e) => {
@@ -69,6 +70,9 @@ function CurrencyConverter() {
             }}
           />
         </div>
+        <p> {toAmount} </p>
+        <p> exchange rate</p>
+        <p> {exRate} </p>
       </form>
       <button onClick={exchInfo}>get exchange rate</button>
     </div>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Dropdown from "react-dropdown";
 import currenciesDictionary from "./currenciesCodes.js";
+import "./CurrencyConverter.css";
 
 function CurrencyConverter() {
   function getObjKey(obj, value) {
@@ -12,14 +13,22 @@ function CurrencyConverter() {
   const [fromCurr, setFromCurr] = useState("");
   const [toCurr, setToCurr] = useState("");
   const [exRate, setExRate] = useState();
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState("0");
   const [info, setInfo] = useState("Previous");
-  const [toAmount, setToAmount] = useState();
+  const [totalAmount, setTotalAmount] = useState("0");
 
   const convertAmount = () => {
-    setToAmount(exRate * amount);
     return exRate * amount;
   };
+
+  useEffect(() => {
+    setTotalAmount(() => exRate * amount);
+  }, [fromCurr, toCurr, amount, exRate]);
+
+  // useEffect
+  // busca el DIV que tiene classname XXX y cambia tal cosa
+
+  // exrate o amoun lo pongo en las dependencias.CurrencyConverter
 
   const exchInfo = () => {
     const URL = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${fromCurr}&to_currency=${toCurr}&apikey=S6OUYUH5FUD5HOY6`;
@@ -31,11 +40,6 @@ function CurrencyConverter() {
           response.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
         setInfo(allInfo);
         setExRate(newResponse);
-        console.log("start");
-        console.log(newResponse);
-        console.log(allInfo);
-        console.log(exRate);
-        console.log("hola");
       })
       .then()
       .catch((err) => {
@@ -44,36 +48,44 @@ function CurrencyConverter() {
   };
   return (
     <div className="App">
-      <form>
-        <div className="CurrAmount">
-          <label>Currency Amount</label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setAmount(e.target.value);
-              convertAmount();
-            }}
-          />
-          <Dropdown
-            options={Object.values(currenciesDictionary)}
-            onChange={(e) => {
-              setFromCurr(String(getObjKey(currenciesDictionary, e.value)));
-            }}
-          />
-        </div>
-
-        <div className="CurrAmount">
-          <Dropdown
-            options={Object.values(currenciesDictionary)}
-            onChange={(e) => {
-              setToCurr(String(getObjKey(currenciesDictionary, e.value)));
-            }}
-          />
-        </div>
-        <p> {toAmount} </p>
-        <p> exchange rate</p>
-        <p> {exRate} </p>
-      </form>
+      <div className="Amount">
+        <label>Amount</label>
+        <input
+          defaultValue={0}
+          type="text"
+          onChange={(e) => {
+            setAmount(e.target.value);
+            setTotalAmount(e.target.value * exRate);
+            convertAmount();
+          }}
+        />
+      </div>
+      <div className="from">
+        <h3>From</h3>
+        <Dropdown
+          options={Object.values(currenciesDictionary)}
+          onChange={(e) => {
+            setFromCurr(String(getObjKey(currenciesDictionary, e.value)));
+            exchInfo();
+          }}
+          placeholder="Select"
+        />
+      </div>
+      <div className="To">
+        <h3>To</h3>
+        <Dropdown
+          options={Object.values(currenciesDictionary)}
+          onChange={(e) => {
+            setToCurr(String(getObjKey(currenciesDictionary, e.value)));
+            exchInfo();
+          }}
+          placeholder="Select"
+        />
+      </div>
+      <p id="mostrando">The total amount is {totalAmount}</p>
+      <p>****</p>
+      <p> exchange rate </p>
+      <p defaultValue={0}> {exRate} </p>
       <button onClick={exchInfo}>get exchange rate</button>
     </div>
   );

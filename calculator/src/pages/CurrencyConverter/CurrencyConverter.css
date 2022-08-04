@@ -1,20 +1,17 @@
-/* .App {
+.App {
     margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-h1 {
+/* h1 {
     margin: 0;
     margin-bottom: .5rem;
 } */
 
-/* .equals {
-    font-size: 2rem;
-}
 
-.formContainer {
+
+/* .formContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,9 +19,9 @@ h1 {
     padding: 3rem 0;
     max-width: 900px;
     margin: auto;
-}
+} */
 
-.CurrAmount{
+/* .CurrAmount{
     width: 45%;
     min-width: 350px;
     max-width: 450px;

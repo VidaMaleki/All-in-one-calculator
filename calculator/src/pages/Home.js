@@ -1,7 +1,8 @@
 import React from "react";
 import '../App.css';
 import './Home.css';
-import backgroundVideo from '../videos/backgroundVideo.mp4'
+import backgroundVideo from '../videos/backgroundVideo.mp4';
+import Footer from '../components/Footer'
 
 function Home() {
   return (
@@ -13,6 +14,9 @@ function Home() {
         <p>Created By Vida and Camila</p>
         </div>
       </div>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   );
 }

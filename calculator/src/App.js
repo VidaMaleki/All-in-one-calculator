@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import Calculator from "./pages/Calculator/Calculator";
 import CurrencyConverter from "./pages/CurrencyConverter/CurrencyConverter";
 import LoanCalculator from "./pages/LoanCalculator/LoanCalculator";
-import SignUp from "./pages/SignUp/SignUp"
 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
               <Route path="/calculator" element={<Calculator/>} />
               <Route path="/currencyconverter" element={<CurrencyConverter/>} />
               <Route path="/loancalculator" element={<LoanCalculator/>} />
-              <Route path="/sign-up" element={<SignUp/>}/>
             </Routes>
           </BrowserRouter>
         </>

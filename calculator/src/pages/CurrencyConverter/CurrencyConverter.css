@@ -1,38 +1,34 @@
-.formContainer {
+.container {
+    /* margin: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 3rem 0;
-    max-width: 900px;
-    margin: auto;
+    /* min-height: 100vh; */
+    text-align: center;
 }
 
-.CurrAmount{
-    width: 45%;
-    min-width: 350px;
-    max-width: 450px;
+#title {
     display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: .5rem;
 }
 
-form {
-    flex-wrap: wrap;
-    margin-top: 1rem;
+.input {
+    border: 1px solid #333;
+    border-radius: .3em;
+    padding: .25rem;
+    width: 7em;
 }
 
-label {
-    text-transform: uppercase;
-    font-weight: 400;
-    color: grey;
-    margin-bottom: 0.5rem;
+select {
+    margin-left: .5rem;
 }
 
-input {
-    background: rgb(222, 245, 246);
-    border: none;
-    border-radius: 10px;
-    padding: 0 1rem;
-    color: grey;
+.equals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
 }

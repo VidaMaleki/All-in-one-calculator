@@ -1,48 +1,17 @@
-
 import React from 'react';
-import {
-    MDBFooter,
-    MDBContainer,
-    MDBIcon,
-    MDBBtn
-} from 'mdb-react-ui-kit';
+import './Footer.css';
 
-export default function Footer() {
+function Footer() {
     return (
-    <MDBFooter className='bg-dark text-center text-white'>
-        <MDBContainer className='p-4 pb-0'>
-            <section className='mb-4'>
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='facebook-f' />
-            </MDBBtn>
-
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='twitter' />
-            </MDBBtn>
-
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='google' />
-            </MDBBtn>
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='instagram' />
-            </MDBBtn>
-
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='linkedin-in' />
-            </MDBBtn>
-
-            <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                <MDBIcon fab icon='github' />
-            </MDBBtn>
-        </section>
-        </MDBContainer>
-
-        <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2022 Copyright:
-        <a className='text-white' href='https://github.com/VidaMaleki/All-in-one-calculator'>
-            Vida & Camila
-        </a>
+        <div className='footer-container'>
+            <p className='footer-subscription-heading'>
+            Have fun using All-in-One Calculator :)
+            </p>
+            <div >
+            <small class='website-rights'>Vida & Camila © 2022</small>
+            </div>
         </div>
-    </MDBFooter>
     );
 }
+
+export default Footer;

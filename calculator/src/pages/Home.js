@@ -11,7 +11,6 @@ function Home() {
         <div className='hero-container'>
         <video src={backgroundVideo} autoPlay loop muted />
         <h1>All in One Calculator</h1>
-        <p>Created By Vida and Camila</p>
         </div>
       </div>
       <footer>

@@ -8,7 +8,7 @@
     margin: auto;
 }
 
-#loanTitle {
+#title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,10 +66,6 @@ input {
     font-weight: 500;
     box-shadow: 0 0 1px rgb(8, 11, 14, 0.06), 0 6px 6px -1px rgb(8, 11, 14, 0.1);
     transition: all 0.3s ease-in-out;
-    /* hover,
-    focus {
-        box-shadow: 0 0 1px 0 rgb(0, 11, 14, 0.06), 0 16px 16px -1px rgb(0, 11, 14, 0.1);
-    } */
 }
 
 .SubmitButton {

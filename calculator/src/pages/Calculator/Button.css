@@ -9,7 +9,7 @@ button {
     outline: none;
 }
 
-button:hover {
+.calculator button:hover {
     background-color: rgb(234, 154, 6);
 }
 

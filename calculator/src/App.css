@@ -6,8 +6,7 @@
     font-family: 'Lato', sans-serif;
 }
 
-.home,
-.sign-up {
+.home {
     display: flex;
     height: 90vh;
     align-items: center;

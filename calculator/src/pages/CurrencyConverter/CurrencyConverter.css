@@ -1,0 +1,67 @@
+.currencyCunvertor {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 120px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.container {
+    height: 300px;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 5px;
+    font-size: 20px;
+    height: 36px;
+}
+
+.fromCurr,
+.ToCurr {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: grey;
+    margin-bottom: 0.5rem;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoDisplay {
+    box-sizing: border-box;
+    width: 800px;
+    padding-left: 30px;
+}
+
+.currencyCunvertor button {
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid rgb(129, 133, 133);
+    background-color: rgb(138, 245, 248);
+    cursor: pointer;
+}
+
+.currencyCunvertor p,
+h3,
+.Amount {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: grey;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 30px;
+}

@@ -12,10 +12,11 @@ function CurrencyConverter() {
     return Object.keys(obj).find((key) => obj[key] === value);
   }
 
-  const [fromCurr, setFromCurr] = useState("");
-  const [toCurr, setToCurr] = useState("");
+  const [fromCurr, setFromCurr] = useState("USD");
+  const [toCurr, setToCurr] = useState("CLP");
   const [exRate, setExRate] = useState("0");
   const [amount, setAmount] = useState("0");
+  const rate = fromCurr.concat("_", toCurr);
   //const [info, setInfo] = useState("Previous");
   //const totalAmount = exRate * amount;
 
@@ -23,16 +24,16 @@ function CurrencyConverter() {
   //[fromCurr, toCurr]
 
   const exchInfo = () => {
-    const URL = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${fromCurr}&to_currency=${toCurr}&apikey=S6OUYUH5FUD5HOY6`;
+    const URL = `https://free.currconv.com/api/v7/convert?q=${rate}&compact=ultra&apiKey=a65b004b2bc49df06ae5`;
     axios
       .get(URL)
       .then((response) => {
-        const allInfo = response.data;
-        const newResponse =
-          response.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
+        // const allInfo = response.data;
+        console.log(response.data);
+        const newResponse = response.data[rate];
         //setInfo(allInfo);
         setExRate(newResponse);
-        console.log(allInfo);
+        console.log(newResponse);
       })
       .then()
       .catch((err) => {
@@ -40,11 +41,13 @@ function CurrencyConverter() {
       });
   };
 
-  useEffect(exchInfo, [fromCurr, toCurr]);
+  useEffect(exchInfo, [fromCurr, rate, toCurr]);
 
   return (
     <div className="currencyCunvertor">
-      <div><h1 id='title'>Currency Converter</h1></div>
+      <div>
+        <h1 id="title">Currency Converter</h1>
+      </div>
       <div className="container">
         <div className="Amount">
           <label>Amount</label>
@@ -58,34 +61,37 @@ function CurrencyConverter() {
         </div>
         <div>
           <h3>From</h3>
-          <Dropdown className="fromCurr"
+          <Dropdown
+            className="fromCurr"
             options={Object.values(currenciesDictionary)}
             onChange={(e) => {
               setFromCurr(String(getObjKey(currenciesDictionary, e.value)));
               exchInfo();
               console.log(exRate);
+              console.log(amount);
             }}
             placeholder="Select"
           />
         </div>
-        <div >
+        <div>
           <h3>To</h3>
-          <Dropdown className="ToCurr"
+          <Dropdown
+            className="ToCurr"
             options={Object.values(currenciesDictionary)}
             onChange={(e) => {
               setToCurr(String(getObjKey(currenciesDictionary, e.value)));
               exchInfo();
               console.log(exRate);
+              console.log(amount);
             }}
             placeholder="Select"
           />
         </div>
-        </div>
-        <div className='infoDisplay'>
-          <p> Converted Amount: </p>
-          <p defaultValue={0}> {numeral(exRate * amount).format("$0,0.00")} </p>
-        </div>
-      
+      </div>
+      <div className="infoDisplay">
+        <p> Converted Amount: </p>
+        <p defaultValue={0}> {numeral(exRate * amount).format("$0,0.00")} </p>
+      </div>
     </div>
   );
 }

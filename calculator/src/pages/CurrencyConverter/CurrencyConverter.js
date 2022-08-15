@@ -12,8 +12,8 @@ function CurrencyConverter() {
     return Object.keys(obj).find((key) => obj[key] === value);
   }
 
-  const [fromCurr, setFromCurr] = useState("USD");
-  const [toCurr, setToCurr] = useState("CLP");
+  const [fromCurr, setFromCurr] = useState("");
+  const [toCurr, setToCurr] = useState("");
   const [exRate, setExRate] = useState("0");
   const [amount, setAmount] = useState("0");
   const rate = fromCurr.concat("_", toCurr);

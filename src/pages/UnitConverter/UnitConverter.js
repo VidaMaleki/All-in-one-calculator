@@ -1,4 +1,3 @@
-//import { StatusBar } from 'expo-status-bar';
 import React, { useState} from 'react';
 import { View} from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';

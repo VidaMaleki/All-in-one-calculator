@@ -49,14 +49,14 @@ form {
     padding: 1rem;
 }
 
-label {
+.loancalculator label {
     text-transform: uppercase;
     font-weight: 400;
     color: grey;
     margin-bottom: 0.5rem;
 }
 
-input {
+.loancalculator input {
     background: rgb(229, 248, 248);
     height: 35px;
     border: none;
@@ -68,13 +68,12 @@ input {
     transition: all 0.3s ease-in-out;
 }
 
-.SubmitButton {
+.loancalculator .SubmitButton {
     background-color: rgb(244, 169, 90);
     color: #fff;
     border: none;
     width: 150px;
     height: 36px;
-    font-family: "", sans-serif;
     font-size: 14px;
     letter-spacing: 0.03em;
     line-height: 36px;

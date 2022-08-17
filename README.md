@@ -37,7 +37,7 @@ Get the exchange rate between two currencies and gives the given amount converte
 
 The converter uses the API https://www.currencyconverterapi.com/ which updates the values every hour.
 
-In order to use this API you need to get an API key, and we made a proxy server (PROXY SERVER REPO LINK) to hide the API key
+In order to use this API you need to get an API key, and we made a proxy server https://github.com/mctagle/Proxy-server-Currency-Converter to hide the API key
 
 from github in the development process.
 

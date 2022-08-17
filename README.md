@@ -1,22 +1,21 @@
 # All-in-one-calculator
-
-# About This App
+Our deployed app link 
+## About This App
 This calculator contains basic calculator and also has Currency Converter, Loan Calculator, and Unit Converter
 Each page is a seperate app and main app holds all routes  by using React Routes.
 
-# App Set-up
+## App Set-up
 - yarn create-react-app calculator
 - cd calculator
 - yarn start
 
 
-# Home page and Menu bar
+## Home page and Menu bar
 Home page contains a short video from https://www.pexels.com/search/calculator/
 
 and Menu bar contains links to all pages and icons used from https://react-icons.github.io/react-icons/
 
-![Alt text](All-in-one-calculator/images/calculator.png "Optional Title")
-# Basic calculator
+## Basic calculator
 
 Basic calculator has an app file called Calculator and Button compenent
 
@@ -30,7 +29,7 @@ Basic calculator has an app file called Calculator and Button compenent
 
 We used ```npm install react-textfit --save``` to fit text in Callculator screen
 
-# Currency converter
+## Currency converter
 
 Currency converter has an app called CurrencyConverter with currencyCodes file 
 
@@ -60,7 +59,7 @@ We used Numeral by ```yarn add numeral``` and imported in file ```import numeral
 
 Syntax for Numeral => ```numeral(payment).format("$0,0.00")```
 
-# loan calculator
+## loan calculator
 
 Loan Calculator has an app file called LoanCalcaulator and LoanForm component
 
@@ -84,7 +83,7 @@ We used Numeral by ```yarn add numeral``` and imported in file ```import numeral
 Syntax for Numeral => ```numeral(payment).format("$0,0.00")```
 
 
-# Unit Converter
+## Unit Converter
 
 Unit converter has an app called UnitConverter and MeasureView component
 

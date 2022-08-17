@@ -1,13 +1,11 @@
 import React, { useState} from 'react';
-//import { View} from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 import convert from 'convert-units';
 import './UnitConverter.css';
 import MeasureView from './MeasureView';
 
 // https://github.com/react-native-picker/picker
-// import Constants from 'expo-constants';
-//Provides system information that remains constant throughout the lifetime of your app.
+
 
 
 

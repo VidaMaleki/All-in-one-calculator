@@ -1,7 +1,9 @@
 .currencyCunvertor {
+    position: fixed;
     height: 100vh;
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding-top: 120px;
@@ -14,11 +16,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: auto;
 }
 
-.currencyCunvertor input {
+.currencyConverter input {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding-left: 5px;
     font-size: 20px;
@@ -47,12 +50,13 @@
 }
 
 .infoDisplay {
+    margin: auto;
     box-sizing: border-box;
     width: 800px;
     padding-left: 30px;
 }
 
-.currencyCunvertor button {
+.currencyConverter button {
     width: 100px;
     height: 30px;
     font-weight: bold;
@@ -62,7 +66,7 @@
     cursor: pointer;
 }
 
-.currencyCunvertor p,
+.currencyConverter p,
 h3,
 .Amount {
     text-transform: uppercase;

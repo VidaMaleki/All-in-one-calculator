@@ -29,10 +29,10 @@ const UnitConverter = () => {
     return (
     <div className="unitconverter">
         <h1>Unit Converter</h1>
-        <TabView navigationState={{index, routes}}
+        <TabView id="tabBar" navigationState={{index, routes}}
             renderScene={renderScene}
             onIndexChange = {setIndex}
-            renderTabBar={(props) => <TabBar id="tabBar"
+            renderTabBar={(props) => <TabBar 
                 {...props} 
                 scrollEnabled
                 tabStyle={{width: 'auto'}}

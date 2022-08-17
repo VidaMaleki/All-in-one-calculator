@@ -44,7 +44,7 @@ function CurrencyConverter() {
   useEffect(exchInfo, [fromCurr, rate, toCurr]);
 
   return (
-    <div className="currencyCunvertor">
+    <div className="currencyConverter">
       <div>
         <h1 id="title">Currency Converter</h1>
       </div>

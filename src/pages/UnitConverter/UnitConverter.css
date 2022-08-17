@@ -5,6 +5,7 @@
 }
 
 .unitconverter h1 {
+    background: fixed;
     color: #2a6279;
     padding: 15;
     font-weight: bold;
@@ -13,9 +14,11 @@
     text-transform: uppercase;
 }
 
-.unitconverter .tabBar {
+#tabBar {
+    background: fixed;
     width: auto;
     background-color: #075e67;
+    z-index: -20;
 }
 
 .measureContainer {
@@ -49,7 +52,7 @@
     height: 50PX;
     border-radius: 1rem;
     border: none;
-    margin: auto;
+    margin: 30px;
     margin-top: 5rem;
 }
 

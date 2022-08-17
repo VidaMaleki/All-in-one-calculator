@@ -1,10 +1,10 @@
-.Unitcontainer {
+.unitconverter {
     flex: 1;
     margin-top: calc();
     color: black
 }
 
-.unitConverter h1 {
+.unitconverter h1 {
     color: #2a6279;
     padding: 15;
     font-weight: bold;
@@ -13,28 +13,28 @@
     text-transform: uppercase;
 }
 
-.unitConverter .tabBar {
+.unitconverter .tabBar {
     width: auto;
-    background-color: #052F5F;
+    background-color: #075e67;
 }
 
 .measureContainer {
     flex: 1;
-    margin-top: calc();
-    color: black
+    margin-top: 5rem;
+    color: black;
+    max-height: auto;
 }
 
 .measureContainer,
 .row {
     display: flex;
-    /* flex: 1; */
-    /* flex-direction: row; */
+    flex: 1;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.measureContainer,
 .column {
     background-color: rgb(226, 247, 248);
     box-shadow: 0 0 1px rgba(24, 85, 145, 0.06), 0 6px 6px -1px rgba(19, 85, 150, 0.1);
@@ -50,27 +50,30 @@
     border-radius: 1rem;
     border: none;
     margin: auto;
-    margin-top: 7rem;
-    transition: all 0.3s ease-in-out;
+    margin-top: 5rem;
 }
 
-.measureContainer .column .inputs {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+.measureContainer input {
+    flex: 1;
+    background: none;
     text-align: center;
-    margin-top: 5rem;
-    height: 40;
-    border-color: #052F5F;
+    margin-top: .1rem;
+    height: 40px;
+    border: 3rem;
+    border-color: none;
+    border-bottom-width: 1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.inputs {
+    flex: 1;
+    text-align: center;
+    margin-top: .1rem;
+    height: 40px;
+    border: 3rem;
+    border-color: none;
     border-bottom-width: 1;
     font-size: 30px;
-}
-
-#input2 {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    text-align: center;
-    font-size: 40;
     font-weight: bold;
 }

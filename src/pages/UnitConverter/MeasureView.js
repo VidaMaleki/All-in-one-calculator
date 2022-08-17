@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, TextInput} from 'react-native';
+import { TextInput} from 'react-native';
 import convert from 'convert-units';
 import './UnitConverter.css';
 import {Picker} from '@react-native-picker/picker';
@@ -17,28 +17,32 @@ const MeasureView = ({measure, value, setValue}) => {
     },[value, fromUnit, toUnit])
 
     return(
-    <View className="measureContainer">
-        <View className='row'>
+    <div className="measureContainer">
+    <div>
+        <section className='row'>
             <Picker className="column" selectedValue={fromUnit} onValueChange={setFromUnit}>
                 {units.map((unit, i) =>(
                     <Picker.Item label={unit} value={unit} key={i} />
                 ))}
             </Picker>
-            <View className='column'>
-                <TextInput className="inputs" value={value} onChangeText={setValue} keyboardType="numeric" />
-            </View>
-        </View>
-        <View className='row'>
+            <div className="column">
+                <div className='inputs1'>
+                    <TextInput  value={value} onChangeText={setValue} keyboardType="numeric" />
+                </div>
+            </div>
+        </section>
+        <section className='row'>
             <Picker className="column" selectedValue={toUnit} onValueChange={setToUnit}>
                 {units.map((unit, i) =>(
                     <Picker.Item label={unit} value={unit} key={i} />
                 ))}
             </Picker>
-            <View className='column'>
-                <Text id="input2" className="inputs">{valueConverted}{' '}</Text>
-            </View>
-        </View>
-    </View>
+            <div className="column">
+                <text className='inputs' >{valueConverted}{' '}</text>
+            </div>
+        </section>
+    </div>
+    </div>
     )
 }
 

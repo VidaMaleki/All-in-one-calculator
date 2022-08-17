@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { View} from 'react-native';
+//import { View} from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 import convert from 'convert-units';
 import './UnitConverter.css';
@@ -27,8 +27,7 @@ const UnitConverter = () => {
         return <MeasureView measure={route.key} value={value} setValue={setValue}/>
     }
     return (
-    <div className="unitConverter">
-    <View className="Unitcontainer" >
+    <div className="unitconverter">
         <h1>Unit Converter</h1>
         <TabView navigationState={{index, routes}}
             renderScene={renderScene}
@@ -37,11 +36,10 @@ const UnitConverter = () => {
                 {...props} 
                 scrollEnabled
                 tabStyle={{width: 'auto'}}
-                indicatorStyle={{ backgroundColor:'rgb(244, 146, 8)'}}
-                style={{backgroundColor: '#052F5F'}}
+                indicatorStyle={{ backgroundColor:'yellow'}}
+                style={{backgroundColor: '#2a6279'}}
             />}
         ></TabView>
-    </View>
     </div>
     );
 }

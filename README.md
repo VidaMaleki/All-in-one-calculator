@@ -15,6 +15,7 @@ Home page contains a short video from https://www.pexels.com/search/calculator/
 
 and Menu bar contains links to all pages and icons used from https://react-icons.github.io/react-icons/
 
+![Alt text](All-in-one-calculator/images/calculator.png "Optional Title")
 # Basic calculator
 
 Basic calculator has an app file called Calculator and Button compenent

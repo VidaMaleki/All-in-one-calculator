@@ -32,7 +32,7 @@ Basic calculator has an app file called Calculator and Button compenent
 - format larger numbers
 - output resize based on length
 
-We used ```npm install react-textfit --save``` to fit text in Callculator screen
+I used ```npm install react-textfit --save``` to fit text in Callculator screen
 
 ## Currency converter
 
@@ -42,7 +42,7 @@ Get the exchange rate between two currencies and gives the given amount converte
 
 The converter uses the API https://www.currencyconverterapi.com/ which updates the values every hour.
 
-In order to use this API you need to get an API key, and we made a proxy server https://github.com/mctagle/Proxy-server-Currency-Converter to hide the API key
+In order to use this API you need to get an API key, and I made a proxy server https://github.com/mctagle/Proxy-server-Currency-Converter to hide the API key
 
 from github in the development process.
 
@@ -53,14 +53,14 @@ from github in the development process.
 
 - used ```axios``` for Currency API
 
-- We used React drop down by ```yarn add react-dropdown```
+- I used React drop down by ```yarn add react-dropdown```
 
 and imported to file ```import Dropdown from "react-dropdown";``` and ```import 'react-dropdown/style.css';```
 
 
 - Numeral takes numbers or strings that it trys to convert into a number.
 
-We used Numeral by ```yarn add numeral``` and imported in file ```import numeral from 'numeral';```
+I used Numeral by ```yarn add numeral``` and imported in file ```import numeral from 'numeral';```
 
 Syntax for Numeral => ```numeral(payment).format("$0,0.00")```
 
@@ -83,7 +83,7 @@ N = Number of periods (monthly mortgage payments)
 
 - Numeral takes numbers or strings that it trys to convert into a number.
 
-We used Numeral by ```yarn add numeral``` and imported in file ```import numeral from 'numeral';```
+I used Numeral by ```yarn add numeral``` and imported in file ```import numeral from 'numeral';```
 
 Syntax for Numeral => ```numeral(payment).format("$0,0.00")```
 
@@ -98,9 +98,9 @@ Unit converter has an app called UnitConverter and MeasureView component
 - Amount input
 - Amount Out put
 
-- We used React native tab view ```yarn add react-native-tab-view``` and imported to file ```import { TabView, TabBar } from 'react-native-tab-view';```
+- I used React native tab view ```yarn add react-native-tab-view``` and imported to file ```import { TabView, TabBar } from 'react-native-tab-view';```
 
-- also we used Currency converter libarary using ```yarn add convert-units --save``` and imported to file ```import convert from 'convert-units';```
+- Also I used unit converter libarary using ```yarn add convert-units --save``` and imported to file ```import convert from 'convert-units';```
 
 - used picker https://github.com/react-native-picker/picker 
 

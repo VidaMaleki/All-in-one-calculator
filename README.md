@@ -1,7 +1,11 @@
 # All-in-one-calculator
 Our deployed app link 
 ## About This App
-This calculator contains basic calculator and also has Currency Converter, Loan Calculator, and Unit Converter
+This calculator contains of:
+- Basic calculator(With iphone calculater design)
+- Currency Converter
+- Loan Calculator
+- Unit Converter
 Each page is a seperate app and main app holds all routes  by using React Routes.
 
 ## App Set-up

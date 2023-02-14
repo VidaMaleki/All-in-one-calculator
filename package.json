@@ -1,54 +1,58 @@
 {
-  "name": "calculator",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@react-native-picker/picker": "^2.4.4",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "axios": "^0.27.2",
-    "convert-units": "^2.3.4",
-    "global": "^4.4.0",
-    "mdb-react-ui-kit": "^4.1.0",
-    "numeral": "^2.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-dropdown": "^1.10.0",
-    "react-icons": "^4.4.0",
-    "react-native": "^0.69.4",
-    "react-native-cli": "^2.0.1",
-    "react-native-pager-view": "^5.4.25",
-    "react-native-tab-view": "^3.1.1",
-    "react-native-web": "^0.18.7",
-    "react-numeral": "^1.1.1",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "react-textfit": "^1.1.1",
-    "web-vitals": "^2.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "homepage": "http://VidaMaleki.github.io/All-in-one-calculator",
+    "name": "calculator",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@react-native-picker/picker": "^2.4.4",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^13.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "axios": "^0.27.2",
+        "convert-units": "^2.3.4",
+        "gh-pages": "^5.0.0",
+        "global": "^4.4.0",
+        "mdb-react-ui-kit": "^4.1.0",
+        "numeral": "^2.0.6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-dropdown": "^1.10.0",
+        "react-icons": "^4.4.0",
+        "react-native": "^0.69.4",
+        "react-native-cli": "^2.0.1",
+        "react-native-pager-view": "^5.4.25",
+        "react-native-tab-view": "^3.1.1",
+        "react-native-web": "^0.18.7",
+        "react-numeral": "^1.1.1",
+        "react-router-dom": "^6.3.0",
+        "react-scripts": "5.0.1",
+        "react-textfit": "^1.1.1",
+        "web-vitals": "^2.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

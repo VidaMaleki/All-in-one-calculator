@@ -7,6 +7,7 @@ import currenciesDictionary from "./currenciesCodes.js";
 import "./CurrencyConverter.css";
 import numeral from 'numeral';
 
+
 function CurrencyConverter() {
   function getObjKey(obj, value) {
     return Object.keys(obj).find((key) => obj[key] === value);
@@ -17,21 +18,14 @@ function CurrencyConverter() {
   const [exRate, setExRate] = useState("0");
   const [amount, setAmount] = useState("0");
   const rate = fromCurr.concat("_", toCurr);
-  //const [info, setInfo] = useState("Previous");
-  //const totalAmount = exRate * amount;
-
-  //useEffect => {axios call}
-  //[fromCurr, toCurr]
 
   const exchInfo = () => {
     const URL = `https://free.currconv.com/api/v7/convert?q=${rate}&compact=ultra&apiKey=a65b004b2bc49df06ae5`;
     axios
       .get(URL)
       .then((response) => {
-        // const allInfo = response.data;
         console.log(response.data);
         const newResponse = response.data[rate];
-        //setInfo(allInfo);
         setExRate(newResponse);
         console.log(newResponse);
       })
@@ -55,7 +49,6 @@ function CurrencyConverter() {
             type="text"
             onChange={(e) => {
               setAmount(e.target.value);
-              //console.log(exRate);
             }}
           />
         </div>

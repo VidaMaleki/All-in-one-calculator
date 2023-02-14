@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './LoanCalculator.css';
 import numeral from 'numeral';
 
-const LoanForm = ()=>{
+const LoanForm = () => {
 
     const [purchasePrice, setPurchasePrice] = useState("");
     const [downPayment, setDownPayment]=useState("");
@@ -10,8 +10,7 @@ const LoanForm = ()=>{
     const [apr, setApr] = useState("");
     const [payment, setPayment] = useState(0.0);
 
-
-    const sumbitCalculation = async (e) =>{
+    const sumbitCalculation = async (e) => {
         //parses an argument (converting it to a string first if needed) and returns a floating point number.  
         e.preventDefault();
 
@@ -22,13 +21,13 @@ const LoanForm = ()=>{
         const validateApr = await validateField(apr,setApr)
 
         //calculate values
-        if (validatePrice && validatePayment && validateTerm && validateApr){
+        if (validatePrice && validatePayment && validateTerm && validateApr) {
             console.log("Form is fully validated")
             calculateValues();
         }
     };
 
-    const calculateValues = ()=> {
+    const calculateValues = () => {
         // M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
         // P = Principal amount (the total amount borrowed)
         // I = Interest rate on the mortgage
@@ -44,50 +43,49 @@ const LoanForm = ()=>{
     }
 
 
-    const validateField = (field, setValue)=>{
+    const validateField = (field, setValue) => {
         let int = parseFloat(field); 
 
-        if(field === "" || field === 0){
+        if (field === "" || field === 0) {
             setValue({...field.values, error: "Please enter a value!"});
             return false;
-        }else if(isNaN(int)){
+        } else if (isNaN(int)){
             setValue({...field.values, error: "Please enter a value!"});
             return false;
-        }else{
+        } else {
             setValue(int);
             return true;
         }
     }
-    return(
+    return (
         <div className='form-container'>
-        <form>
-            <div className='InputSection'>
-            <label>Purchase Price</label>
-            <p className="error">{purchasePrice.error}</p>
-            <input onChange={(e)=> setPurchasePrice(e.target.value)} type='text'/>
-            </div> 
-            <div className='InputSection'>
-            <label>Down Payment</label>
-            <p className="error">{downPayment.error}</p>
-            <input onChange={(e)=> setDownPayment(e.target.value)} type='text'/>
-            </div> 
-            <div className='InputSection'>
-            <label>Loan Term</label>
-            <p className="error">{loanTerm.error}</p>
-            <input onChange={(e)=> setLoanTerm(e.target.value)} type='text'/>
-            </div>
-            <div className='InputSection'>
-            <label>APR (%)</label>
-            <p className="error">{apr.error}</p>
-            <input onChange={(e)=> setApr(e.target.value)} type='text'/>
-            </div>
-            <input className='SubmitButton' type="submit" value="Calculate" onClick={(e)=> sumbitCalculation(e)}/>
-        </form>
-        <h3 id="result">
-            Estimated Monthly Payments: {numeral(payment).format("$0,0.00")}
-        </h3>
+            <form>
+                <div className='InputSection'>
+                    <label>Purchase Price</label>
+                    <p className="error">{purchasePrice.error}</p>
+                    <input onChange={(e)=> setPurchasePrice(e.target.value)} type='text'/>
+                </div> 
+                <div className='InputSection'>
+                    <label>Down Payment</label>
+                    <p className="error">{downPayment.error}</p>
+                    <input onChange={(e)=> setDownPayment(e.target.value)} type='text'/>
+                </div> 
+                <div className='InputSection'>
+                    <label>Loan Term</label>
+                    <p className="error">{loanTerm.error}</p>
+                    <input onChange={(e)=> setLoanTerm(e.target.value)} type='text'/>
+                </div>
+                <div className='InputSection'>
+                    <label>APR (%)</label>
+                    <p className="error">{apr.error}</p>
+                    <input onChange={(e)=> setApr(e.target.value)} type='text'/>
+                </div>
+                <input className='SubmitButton' type="submit" value="Calculate" onClick={(e) => sumbitCalculation(e)}/>
+            </form>
+            <h3 id="result">
+                Estimated Monthly Payments: {numeral(payment).format("$0,0.00")}
+            </h3>
         </div>
-        
     );
 }
 

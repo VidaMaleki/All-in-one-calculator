@@ -34,7 +34,7 @@ const Calculator = () => {
   };
 
   //reset AC function
-  const resetClick = ()=>{
+  const resetClick = () => {
     setNum("")
     setResult("")
     setSign("")
@@ -49,13 +49,13 @@ const Calculator = () => {
   // comma . function
   const commaClick = (e) => {
     const value = e.target.innerHTML;
-    if(num){
+    if (num) {
       if (!num.includes(".")) {
         setNum(num + value);
-      }else {
+      } else {
         setNum(num);
       }
-    }else{
+    } else {
       setNum("0" + value);
     }
   };
@@ -64,9 +64,9 @@ const Calculator = () => {
   const percentClick = () => {
     if (num && !result){
       setNum(num/100) 
-    }else if(!num && result){
+    } else if (!num && result){
       setResult(result /100)
-    }else if(num && result){
+    } else if (num && result){
       setNum((num* result)/100)
     }
   };
@@ -79,8 +79,7 @@ const Calculator = () => {
       setSign(value);
       setResult(num);
       setNum("")
-    }
-    else{
+    } else {
       setResult(mathOperation(sign, Number(result), Number(num)));
       setSign(value);
       setNum("")

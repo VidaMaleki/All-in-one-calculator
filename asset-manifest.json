@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/All-in-one-calculator/static/css/main.9cfb655d.css",
+    "main.js": "/All-in-one-calculator/static/js/main.58dcad18.js",
+    "static/media/backgroundVideo.mp4": "/All-in-one-calculator/static/media/backgroundVideo.d49522188dada158d5c3.mp4",
+    "index.html": "/All-in-one-calculator/index.html",
+    "main.9cfb655d.css.map": "/All-in-one-calculator/static/css/main.9cfb655d.css.map",
+    "main.58dcad18.js.map": "/All-in-one-calculator/static/js/main.58dcad18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cfb655d.css",
+    "static/js/main.58dcad18.js"
+  ]
+}
